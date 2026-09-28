@@ -1,0 +1,2 @@
+Windows Installer (Run from Administrator PowerShell ):
+$ProgressPreference = 'SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/wjadams17/IPBan/main/official_install.ps1'))
