@@ -202,3 +202,28 @@ Write-Output "IPBan installation/update complete."
 Write-Output "Configuration: $ConfigFile"
 Write-Output "Backup:        $BackupFile"
 Write-Output "=============================================="
+
+Write-Host ""
+Write-Host "IPBan installation complete." -ForegroundColor Green
+Write-Host "The window will close in 10 seconds."
+Write-Host "Press C to cancel and keep this window open."
+
+for ($i = 10; $i -gt 0; $i--) {
+    Write-Host "`rClosing in $i seconds... " -NoNewline
+
+    if ([Console]::KeyAvailable) {
+        $key = [Console]::ReadKey($true)
+
+        if ($key.Key -eq "C") {
+            Write-Host ""
+            Write-Host "Auto-close cancelled."
+            break
+        }
+    }
+
+    Start-Sleep -Seconds 1
+}
+
+if ($key.Key -ne "C") {
+    exit
+}
